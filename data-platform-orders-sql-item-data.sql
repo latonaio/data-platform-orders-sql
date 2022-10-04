@@ -6,6 +6,8 @@ CREATE TABLE `data_platform_orders_item_data`
   `OrderItemCategory`                  varchar(4) DEFAULT NULL,   --名称変更
   `OrderItemText`                      varchar(40) DEFAULT NULL,  --名称変更
   `Product`                            varchar(40) DEFAULT NULL,  --名称変更
+  `ProductStandardID`                  varchar(18) DEFAULT NULL,  --新規追加
+  `ProductByCustomer`                  varchar(40) DEFAULT NULL,  --名称変更
   `PricingDate`                        varchar(80) DEFAULT NULL,
   `OrderQuantity`                      varchar(17) DEFAULT NULL,  --名称変更
   `OrderQuantityUnit`                  varchar(3) DEFAULT NULL,   --名称変更
