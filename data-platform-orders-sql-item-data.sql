@@ -26,8 +26,8 @@ CREATE TABLE `data_platform_orders_item_data`
   `Batch`                              varchar(10) DEFAULT NULL,
   `ProductionPlant`                    varchar(4) DEFAULT NULL,
   `ProductionPlantStorageLocation`     varchar(4) DEFAULT NULL,  --名称変更
-  `ShippingPlant`                      varchar(4) DEFAULT NULL,  --新規追加
-  `ShippingPlantStorageLocation`       varchar(4) DEFAULT NULL,  --新規追加
+  `IssuingPlant`                       varchar(4) DEFAULT NULL,  --新規追加
+  `IssuingPlantStorageLocation`        varchar(4) DEFAULT NULL,  --新規追加
   `ReceivingPlant`                     varchar(4) DEFAULT NULL,  --新規追加
   `ReceivingPlantStorageLocation`      varchar(4) DEFAULT NULL,  --新規追加 
   `IncotermsClassification`            varchar(3) DEFAULT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE `data_platform_orders_item_data`
   `AccountingExchangeRate`             varchar(11) DEFAULT NULL,
   `ReferenceDocument`                  varchar(10) DEFAULT NULL,  --名称変更
   `ReferenceDocumentItem`              varchar(6) DEFAULT NULL,   --名称変更
-  `ShippingStatus`                     varchar(2) DEFAULT NULL,  --新規追加
+  `IssuingStatus`                      varchar(2) DEFAULT NULL,  --新規追加
   `ReceivingStatus`                    varchar(2) DEFAULT NULL,  --新規追加
   `BillingStatus`                      varchar(2) DEFAULT NULL,  --新規追加
     PRIMARY KEY (`BusinessPartner`, `OrderID`, `OrderItem`),
