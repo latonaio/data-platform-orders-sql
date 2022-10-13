@@ -1,11 +1,11 @@
 CREATE TABLE `data_platform_orders_item_partner_data`
 (
-  `BusinessPartner`                     varchar(10) NOT NULL,  --新規追加
-  `OrderID`                             varchar(10) NOT NULL,  --名称変更
-  `OrderItem`                           varchar(6) NOT NULL,   --名称変更
+  `BusinessPartner`                     int(10) NOT NULL,      -- 新規追加
+  `OrderID`                             int(10) NOT NULL,      -- 名称変更
+  `OrderItem`                           int(6) NOT NULL,       -- 名称変更
   `PartnerFunction`                     varchar(2) NOT NULL,
-  `PartnerFunctionBusinessPartner`      varchar(2) DEFAULT NULL,  
+  `PartnerFunctionBusinessPartner`      int(10) DEFAULT NULL,  
     PRIMARY KEY (`BusinessPartner`, `OrderID`, `OrderItem`, `PartnerFunction`),
-    CONSTRAINT `DataPlatformOrdersItemPartnerData_fk` FOREIGN KEY (`OrderID`) REFERENCES `data_platform_orders_header_data` (`OrderID`)
+    CONSTRAINT `DataPlatformOrdersItemPartnerData_fk` FOREIGN KEY (`BusinessPartner`, `OrderID`, `OrderItem`) REFERENCES `data_platform_orders_item_data` (`BusinessPartner`, `OrderID`, `OrderItem`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
