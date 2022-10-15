@@ -32,7 +32,7 @@ CREATE TABLE `data_platform_orders_item_data`
   `IssuingPlantStorageLocation`        varchar(4) DEFAULT NULL,  -- 新規追加
   `ReceivingPlant`                     varchar(4) DEFAULT NULL,  -- 新規追加
   `ReceivingPlantStorageLocation`      varchar(4) DEFAULT NULL,  -- 新規追加 
-  `IncotermsClassification`            varchar(3) DEFAULT NULL,
+  `Incoterms`                          varchar(3) DEFAULT NULL,
   `BPTaxClassification1`               varchar(1) DEFAULT NULL,  -- 新規追加
   `ProductTaxClassification1`          varchar(1) DEFAULT NULL,
   `TaxAmount`                          varchar(13) DEFAULT NULL,
@@ -49,6 +49,7 @@ CREATE TABLE `data_platform_orders_item_data`
   `ReceivingStatus`                    varchar(2) DEFAULT NULL,  -- 新規追加
   `BillingStatus`                      varchar(2) DEFAULT NULL,  -- 新規追加
   `TaxCode`                            varchar(2) DEFAULT NULL,  -- 新規追加
+  `CountryOfOrigin`                    varchar(3) DEFAULT NULL,  -- 新規追加
     PRIMARY KEY (`BusinessPartner`, `OrderID`, `OrderItem`),
     CONSTRAINT `DataPlatformOrdersItemData_fk` FOREIGN KEY (`BusinessPartner`, `OrderID`) REFERENCES `data_platform_orders_header_data` (`BusinessPartner`, `OrderID`)
 ) ENGINE = InnoDB

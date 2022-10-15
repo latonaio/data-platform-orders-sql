@@ -27,7 +27,7 @@ CREATE TABLE `data_platform_orders_header_data`
   `CompleteDeliveryIsDefined`      tinyint(1) DEFAULT NULL,
   `HeaderBillingBlockReason`       tinyint(1) DEFAULT NULL,
   `DeliveryBlockReason`            tinyint(1) DEFAULT NULL,
-  `IncotermsClassification`        varchar(3) DEFAULT NULL,
+  `Incoterms`                      varchar(3) DEFAULT NULL,
   `PaymentTerms`                   varchar(4) DEFAULT NULL,
   `PaymentMethod`                  varchar(1) DEFAULT NULL,
   `ReferenceDocument`              int(10) DEFAULT NULL,      -- 名称変更
