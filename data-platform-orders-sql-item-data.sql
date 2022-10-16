@@ -45,7 +45,7 @@ CREATE TABLE `data_platform_orders_item_data`
   `AccountingExchangeRate`             varchar(11) DEFAULT NULL,
   `ReferenceDocument`                  int(10) DEFAULT NULL,      -- 名称変更
   `ReferenceDocumentItem`              int(6) DEFAULT NULL,       -- 名称変更
-  `IssuingStatus`                      int(2) DEFAULT NULL,       -- 新規追加
+  `IssuingStatus`                      varchar(2) DEFAULT NULL,   -- 新規追加
   `ReceivingStatus`                    varchar(2) DEFAULT NULL,   -- 新規追加
   `BillingStatus`                      varchar(2) DEFAULT NULL,   -- 新規追加
   `TaxCode`                            varchar(2) DEFAULT NULL,   -- 新規追加
