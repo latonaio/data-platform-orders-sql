@@ -17,6 +17,7 @@ data-platform-orders-sql には、sqlの設定ファイルとして、以下の�
 * data-platform-orders-sql-item-partner-data.sql（データ連携基盤 オーダー - 明細取引先データ）  
 * data-platform-orders-sql-item-pricing-element-data.sql（データ連携基盤 オーダー - 明細価格決定要素データ）  
 * data-platform-orders-sql-item-schedule-line-data.sql（データ連携基盤 オーダー - 明細納入日程行データ）
+* data-platform-orders-sql-header-pdf-data.sql（データ連携基盤 オーダー - PDFデータ）
 
 ## MySQLのセットアップ / Kubernetesの設定 / SQLテーブルの作成方法
 MySQLのセットアップ / Kubernetesの設定 / 具体的なSQLテーブルの作成方法、については、[mysql-kube](https://github.com/latonaio/mysql-kube)を参照ください。  
