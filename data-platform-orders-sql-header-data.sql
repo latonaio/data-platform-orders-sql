@@ -26,6 +26,7 @@ CREATE TABLE `data_platform_orders_header_data`
   `OverallOrdReltdBillgStatus`     varchar(2) DEFAULT NULL,
   `OverallDocReferenceStatus`      varchar(4) DEFAULT NULL,   -- 名称変更
   `TransactionCurrency`            varchar(5) DEFAULT NULL,
+  `BusinessPartnerCurrency`        varchar(5) DEFAULT NULL,   -- 新規追加
   `PricingDate`                    varchar(80) DEFAULT NULL,
   `PriceDetnExchangeRate`          varchar(80) DEFAULT NULL,
   `RequestedDeliveryDate`          varchar(80) DEFAULT NULL,

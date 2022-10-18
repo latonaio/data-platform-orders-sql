@@ -21,6 +21,7 @@ CREATE TABLE `data_platform_orders_item_data`
   `ItemNetWeight`                      varchar(17) DEFAULT NULL,
   `ItemWeightUnit`                     varchar(3) DEFAULT NULL,
   `TransactionCurrency`                varchar(5) DEFAULT NULL,
+  `BusinessPartnerCurrency`            varchar(5) DEFAULT NULL,   -- 新規追加
   `NetAmount`                          varchar(17) DEFAULT NULL,
   `ProductGroup`                       varchar(9) DEFAULT NULL,   -- 名称変更
   `ProductPricingGroup`                varchar(2) DEFAULT NULL,   -- 名称変更
