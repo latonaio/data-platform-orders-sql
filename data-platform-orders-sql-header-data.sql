@@ -15,6 +15,11 @@ CREATE TABLE `data_platform_orders_header_data`
   `LastChangeDate`                 varchar(80) DEFAULT NULL,
   `SalesExternalDocumentID`        varchar(40) DEFAULT NULL,  -- 新規追加
   `PurchaseExternalDocumentID`     varchar(40) DEFAULT NULL,  -- 新規追加
+  `ContractType`                   varchar(4) DEFAULT NULL,   -- 新規追加
+  `ValidityStartDate`              varchar(80) DEFAULT NULL,  -- 新規追加
+  `ValidityEndDate`                varchar(80) DEFAULT NULL,  -- 新規追加
+  `InvoiceScheduleStartDate`       varchar(80) DEFAULT NULL,  -- 新規追加
+  `InvoiceScheduleEndDate`         varchar(80) DEFAULT NULL,  -- 新規追加
   `TotalNetAmount`                 varchar(25) DEFAULT NULL,
   `OverallDeliveryStatus`          varchar(2) DEFAULT NULL,
   `TotalBlockStatus`               tinyint(1) DEFAULT NULL,
@@ -36,6 +41,7 @@ CREATE TABLE `data_platform_orders_header_data`
   `AccountingExchangeRate`         varchar(16) DEFAULT NULL,
   `BPTaxClassification1`           varchar(1) DEFAULT NULL,   -- 名称変更
   `BillingDocumentDate`            varchar(80) DEFAULT NULL,
+  `HeaderText`                     varchar(200) DEFAULT NULL, -- 新規追加
     PRIMARY KEY (`BusinessPartner`, `OrderID`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
