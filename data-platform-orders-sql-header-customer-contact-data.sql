@@ -4,7 +4,7 @@ CREATE TABLE `data_platform_orders_header_customer_contact_data`
   `OrderID`                       int(10) NOT NULL,            -- 新規追加
   `Customer`                      int(10) NOT NULL,            -- 新規追加
   `ContactID`                     int(4) NOT NULL,             -- 新規追加
-  `ContactPersionName`            varchar(100) DEFAULT NULL,   -- 新規追加
+  `ContactPersonName`             varchar(100) DEFAULT NULL,   -- 新規追加
   `EmailAddress`                  varchar(200) DEFAULT NULL,   -- 新規追加
   `PhoneNumber`                   varchar(100) DEFAULT NULL,   -- 新規追加
   `MobilePhoneNumber`             varchar(100) DEFAULT NULL,   -- 新規追加
