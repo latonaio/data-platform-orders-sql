@@ -1,21 +1,23 @@
 CREATE TABLE `data_platform_orders_item_schedule_line_data`
 (
-  `BusinessPartner`                int(10) NOT NULL,
-  `OrderID`                        int(10) NOT NULL,
-  `OrderItem`                      int(6) NOT NULL,
-  `ScheduleLine`                   int(3) NOT NULL,
-  `Product`                        varchar(4) DEFAULT NULL,   -- 新規追加
-  `StockConfirmationPlant`         varchar(4) DEFAULT NULL,   -- 新規追加
-  `RequestedDeliveryDate`          varchar(80) DEFAULT NULL,
-  `ConfirmedDeliveryDate`          varchar(80) DEFAULT NULL,
-  `OrderQuantityUnit`              varchar(3) DEFAULT NULL,
-  `ScheduleLineOrderQuantity`      varchar(15) DEFAULT NULL,
-  `ConfdOrderQtyByPDTAvailCheck`   varchar(15) DEFAULT NULL,  -- 名称変更
-  `DeliveredQtyInOrderQtyUnit`     varchar(15) DEFAULT NULL,
-  `OpenConfdDelivQtyInOrdQtyUnit`  varchar(15) DEFAULT NULL,
-  `DelivBlockReasonForSchedLine`   tinyint(1) DEFAULT NULL,
-  `PlusMinusFlag`                  varchar(1) DEFAULT NULL,   -- 新規追加
-    PRIMARY KEY (`BusinessPartner`, `OrderID`, `OrderItem`, `ScheduleLine`),
-    CONSTRAINT `DataPlatformOrdersItemScheduleLineData_fk` FOREIGN KEY (`BusinessPartner`, `OrderID`, `OrderItem`) REFERENCES `data_platform_orders_item_data` (`BusinessPartner`, `OrderID`, `OrderItem`)
+  `OrderID`                         int(16) NOT NULL,
+  `OrderItem`                       int(6) NOT NULL,
+  `ScheduleLine`                    int(3) NOT NULL,
+  `Product`                         varchar(40) NOT NULL,
+  `StockConfirmationPlant`          varchar(4) NOT NULL,
+  `RequestedDeliveryDate`           date NOT NULL,
+  `ConfirmedDeliveryDate`           date DEFAULT NULL,
+  `OrderQuantityUnit`               varchar(3) DEFAULT NULL,
+  `ScheduleLineOrderQuantity`       float(15) DEFAULT NULL,
+  `ConfdOrderQtyByPDTAvailCheck`    float(15) DEFAULT NULL,
+  `DeliveredQtyInOrderQtyUnit`      float(15) DEFAULT NULL,
+  `OpenConfdDelivQtyInOrdQtyUnit`   float(15) DEFAULT NULL,
+  `DelivBlockReasonForSchedLine`    tinyint(1) DEFAULT NULL,
+  `PlusMinusFlag`                   varchar(1) NOT NULL,
+  
+  PRIMARY KEY (`OrderID`, `OrderItem`, `ScheduleLine`),
+    
+  CONSTRAINT `DataPlatformOrdersItemScheduleLineData_fk` FOREIGN KEY (`OrderID`, `OrderItem`, `Product`) REFERENCES `data_platform_orders_item_data` (`OrderID`, `OrderItem`, `Product`)
+
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

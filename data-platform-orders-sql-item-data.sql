@@ -1,57 +1,92 @@
 CREATE TABLE `data_platform_orders_item_data`
 (
-  `BusinessPartner`                    int(10) NOT NULL,          -- 新規追加
-  `OrderID`                            int(10) NOT NULL,          -- 名称変更
-  `OrderItem`                          int(6) NOT NULL,           -- 名称変更
-  `OrderItemCategory`                  varchar(4) DEFAULT NULL,   -- 名称変更
-  `OrderItemText`                      varchar(100) DEFAULT NULL,  -- 名称変更
-  `Product`                            varchar(40) DEFAULT NULL,  -- 名称変更
-  `ProductStandardID`                  varchar(18) DEFAULT NULL,  -- 新規追加
-  `ProductByCustomer`                  varchar(40) DEFAULT NULL,  -- 名称変更
-  `PricingDate`                        varchar(80) DEFAULT NULL,
-  `OrderQuantity`                      varchar(17) DEFAULT NULL,  -- 名称変更
-  `OrderQuantityUnit`                  varchar(3) DEFAULT NULL,   -- 名称変更
-  `StockConfirmationPartnerFunction`   varchar(2) DEFAULT NULL,   -- 新規追加
-  `StockConfirmationBusinessPartner`   int(10) DEFAULT NULL,      -- 新規追加
-  `StockConfirmationPlant`             varchar(4) DEFAULT NULL,   -- 新規追加
-  `StockConfirmationPolicy`            varchar(4) DEFAULT NULL,   -- 新規追加
-  `StockConfirmationStatus`            varchar(2) DEFAULT NULL,   -- 新規追加
-  `ConfdDelivQtyInOrderQtyUnit`        varchar(3) DEFAULT NULL,
-  `ItemGrossWeight`                    varchar(17) DEFAULT NULL,
-  `ItemNetWeight`                      varchar(17) DEFAULT NULL,
-  `ItemWeightUnit`                     varchar(3) DEFAULT NULL,
-  `TransactionCurrency`                varchar(5) DEFAULT NULL,
-  `BusinessPartnerCurrency`            varchar(5) DEFAULT NULL,   -- 新規追加
-  `NetAmount`                          varchar(17) DEFAULT NULL,
-  `ProductGroup`                       varchar(9) DEFAULT NULL,   -- 名称変更
-  `ProductPricingGroup`                varchar(2) DEFAULT NULL,   -- 名称変更
-  `BillingDocumentDate`                varchar(80) DEFAULT NULL,
-  `Batch`                              varchar(10) DEFAULT NULL,
-  `ProductionPlant`                    varchar(4) DEFAULT NULL,
-  `ProductionPlantStorageLocation`     varchar(4) DEFAULT NULL,  -- 名称変更
-  `IssuingPlant`                       varchar(4) DEFAULT NULL,  -- 新規追加
-  `IssuingPlantStorageLocation`        varchar(4) DEFAULT NULL,  -- 新規追加
-  `ReceivingPlant`                     varchar(4) DEFAULT NULL,  -- 新規追加
-  `ReceivingPlantStorageLocation`      varchar(4) DEFAULT NULL,  -- 新規追加 
-  `Incoterms`                          varchar(3) DEFAULT NULL,  -- 名称変更
-  `BPTaxClassification1`               varchar(1) DEFAULT NULL,  -- 新規追加
-  `ProductTaxClassification1`          varchar(1) DEFAULT NULL,
-  `TaxAmount`                          varchar(13) DEFAULT NULL,
-  `ProductAccountAssignmentGroup`      varchar(2) DEFAULT NULL,  -- 名称変更
-  `PaymentTerms`                       varchar(4) DEFAULT NULL,  -- 名称変更
-  `DocumentRjcnReason`                 tinyint(1) DEFAULT NULL,  -- 名称変更
-  `ItemBillingBlockReason`             tinyint(1) DEFAULT NULL,
-  `Project`                            varchar(24) DEFAULT NULL,  -- 新規追加
-  `ProfitCenter`                       varchar(10) DEFAULT NULL,
-  `AccountingExchangeRate`             varchar(11) DEFAULT NULL,
-  `ReferenceDocument`                  int(10) DEFAULT NULL,      -- 名称変更
-  `ReferenceDocumentItem`              int(6) DEFAULT NULL,       -- 名称変更
-  `IssuingStatus`                      varchar(2) DEFAULT NULL,   -- 新規追加
-  `ReceivingStatus`                    varchar(2) DEFAULT NULL,   -- 新規追加
-  `BillingStatus`                      varchar(2) DEFAULT NULL,   -- 新規追加
-  `TaxCode`                            varchar(2) DEFAULT NULL,   -- 新規追加
-  `CountryOfOrigin`                    varchar(3) DEFAULT NULL,   -- 新規追加
-    PRIMARY KEY (`BusinessPartner`, `OrderID`, `OrderItem`),
-    CONSTRAINT `DataPlatformOrdersItemData_fk` FOREIGN KEY (`BusinessPartner`, `OrderID`) REFERENCES `data_platform_orders_header_data` (`BusinessPartner`, `OrderID`)
+    `OrderID`                                int(16) NOT NULL,
+    `OrderItem`                              int(6) NOT NULL,
+    `OrderItemCategory`                      varchar(4) NOT NULL,
+    `OrderItemText`                          varchar(100) NOT NULL,
+    `Product`                                varchar(40) NOT NULL,
+    `ProductStandardID`                      varchar(18) NOT NULL,
+    `PricingDate`                            date NOT NULL,
+    `OrderQuantity`                          float(15) NOT NULL,
+    `OrderQuantityUnit`                      varchar(3) NOT NULL,
+    `StockConfirmationPartnerFunction`       varchar(40) DEFAULT NULL,
+    `StockConfirmationBusinessPartner`       int(12) DEFAULT NULL,
+    `StockConfirmationPlant`                 varchar(4) DEFAULT NULL,
+    `StockConfirmationPolicy`                varchar(4) DEFAULT NULL,
+    `StockConfirmationStatus`                varchar(2) DEFAULT NULL,
+    `ConfdDelivQtyInOrderQtyUnit`            float(15) DEFAULT NULL,
+    `ItemGrossWeight`                        float(15) DEFAULT NULL,
+    `ItemNetWeight`                          float(15) DEFAULT NULL,
+    `ItemWeightUnit`                         varchar(3) DEFAULT NULL,
+    `NetAmount`                              float(13) DEFAULT NULL,
+    `TaxAmount`                              float(13) DEFAULT NULL,
+    `GrossAmount`                            float(13) DEFAULT NULL,
+    `ProductGroup`                           varchar(9) DEFAULT NULL,
+    `BillingDocumentDate`                    date DEFAULT NULL,
+    `ProductionPlantBusinessPartner`         int(12) DEFAULT NULL,
+    `ProductionPlant`                        varchar(4) DEFAULT NULL,
+    `ProductionPlantTimeZone`                varchar(3) DEFAULT NULL,
+    `ProductionPlantStorageLocation`         varchar(4) DEFAULT NULL,
+    `IssuingPlantBusinessPartner`            int(12) DEFAULT NULL,
+    `IssuingPlant`                           varchar(4) DEFAULT NULL,
+    `IssuingPlantTimeZone`                   varchar(3) DEFAULT NULL,
+    `IssuingPlantStorageLocation`            varchar(4) DEFAULT NULL,
+    `ReceivingPlantBusinessPartner`          int(12) DEFAULT NULL,
+    `ReceivingPlant`                         varchar(4) DEFAULT NULL,
+    `ReceivingPlantTimeZone`                 varchar(3) DEFAULT NULL,
+    `ReceivingPlantStorageLocation`          varchar(4) DEFAULT NULL,
+    `ProductIsBatchManagedInProductionPlant` tinyint(1) DEFAULT NULL,
+    `ProductIsBatchManagedInIssuingPlant`    tinyint(1) DEFAULT NULL,
+    `ProductIsBatchManagedInReceivingPlant`  tinyint(1) DEFAULT NULL,
+    `ProductionPlantBatch`                   varchar(10) DEFAULT NULL,
+    `IssuingPlantBatch`                      varchar(10) DEFAULT NULL,
+    `ReceivingPlantBatch`                    varchar(10) DEFAULT NULL,
+    `ProductionPlantBatchValidityStartDate`  date DEFAULT NULL,
+    `ProductionPlantBatchValidityEndDate`    date DEFAULT NULL,
+    `IssuingPlantBatchValidityStartDate`     date DEFAULT NULL,
+    `IssuingPlantBatchValidityEndDate`       date DEFAULT NULL,
+    `ReceivingPlantBatchValidityStartDate`   date DEFAULT NULL,
+    `ReceivingPlantBatchValidityEndDate`     date DEFAULT NULL,
+    `Incoterms`                              varchar(4) DEFAULT NULL,
+    `BPTaxClassification`                    varchar(1) NOT NULL,
+    `ProductTaxClassification`               varchar(1) NOT NULL,
+    `BPAccountAssignmentGroup`               varchar(2) NOT NULL,
+    `ProductAccountAssignmentGroup`          varchar(2) NOT NULL,
+    `PaymentTerms`                           varchar(4) NOT NULL,
+    `PaymentMethod`                          varchar(1) NOT NULL,
+    `DocumentRjcnReason`                     tinyint(1) DEFAULT NULL,
+    `ItemBillingBlockReason`                 tinyint(1) DEFAULT NULL,
+    `Project`                                varchar(24) DEFAULT NULL,
+    `AccountingExchangeRate`                 float(8) DEFAULT NULL,
+    `ReferenceDocument`                      int(12) DEFAULT NULL,
+    `ReferenceDocumentItem`                  int(6) DEFAULT NULL,
+    `ItemDeliveryStatus`                     varchar(2) DEFAULT NULL,
+    `IssuingStatus`                          varchar(2) DEFAULT NULL,
+    `ReceivingStatus`                        varchar(2) DEFAULT NULL,
+    `BillingStatus`                          varchar(2) DEFAULT NULL,
+    `TaxCode`                                varchar(2) DEFAULT NULL,
+    `TaxRate`                                varchar(6) DEFAULT NULL,
+    `CountryOfOrigin`                        varchar(3) DEFAULT NULL,
+
+    PRIMARY KEY (`OrderID`, `OrderItem`),
+    
+    CONSTRAINT `DataPlatformInvoiceDocumentItemData_fk` FOREIGN KEY (`InvoiceDocument`) REFERENCES `data_platform_invoice_document_header_data` (`InvoiceDocument`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataDeliverToParty_fk` FOREIGN KEY (`DeliverToParty`, `DeliverFromParty`) REFERENCES `data_platform_delivery_document_header_data` (`DeliverToParty`, `DeliverFromParty`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataProduct_fk` FOREIGN KEY (`Product`) REFERENCES `data_platform_product_master_general_data` (`Product`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataProductGroup_fk` FOREIGN KEY (`ProductGroup`) REFERENCES `data_platform_product_group_product_group_data` (`ProductGroup`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataIssuingPlantBusinessPartner_fk` FOREIGN KEY (`IssuingPlantBusinessPartner`, `IssuingPlant`) REFERENCES `data_platform_delivery_document_header_data` (`IssuingPlantBusinessPartner`, `IssuingPlant`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataReceivingPlantBusinessPartner_fk` FOREIGN KEY (`ReceivingPlantBusinessPartner`, `ReceivingPlant`) REFERENCES `data_platform_delivery_document_header_data` (`ReceivingPlantBusinessPartner`, `ReceivingPlant`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataActualGoodsIssueDate_fk` FOREIGN KEY (`ActualGoodsIssueDate`, `ActualGoodsIssueTime`) REFERENCES `data_platform_delivery_document_item_data` (`ActualGoodsIssueDate`, `ActualGoodsIssueTime`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataActualGoodsReceiptDate_fk` FOREIGN KEY (`ActualGoodsReceiptDate`, `ActualGoodsReceiptTime`) REFERENCES `data_platform_delivery_document_item_data` (`ActualGoodsReceiptDate`, `ActualGoodsReceiptTime`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataNetAmount_fk` FOREIGN KEY (`NetAmount`) REFERENCES `data_platform_orders_item_data` (`NetAmount`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataGoodsIssueOrReceiptSlipNumber_fk` FOREIGN KEY (`GoodsIssueOrReceiptSlipNumber`) REFERENCES `data_platform_delivery_document_header_data` (`GoodsIssueOrReceiptSlipNumber`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataTransactionCurrency_fk` FOREIGN KEY (`TransactionCurrency`, `BusinessPartnerCurrency`) REFERENCES `data_platform_orders_item_data` (`TransactionCurrency`, `BusinessPartnerCurrency`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataPricingDate_fk` FOREIGN KEY (`PricingDate`) REFERENCES `data_platform_orders_item_data` (`PricingDate`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataProductTaxClassification_fk` FOREIGN KEY (`ProductTaxClassification`) REFERENCES `data_platform_orders_item_data` (`ProductTaxClassification`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataContractType_fk` FOREIGN KEY (`ContractType`) REFERENCES `data_platform_orders_header_data` (`ContractType`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataOrderVaridityStartDate_fk` FOREIGN KEY (`OrderVaridityStartDate`, `OrderValidityEndDate`) REFERENCES `data_platform_orders_header_data` (`ValidityStartDate`, `ValidityEndDate`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataInvoiceScheduleStartDate_fk` FOREIGN KEY (`InvoiceScheduleStartDate`, `InvoiceScheduleEndDate`) REFERENCES `data_platform_orders_header_data` (`InvoiceScheduleStartDate`, `InvoiceScheduleEndDate`),
+    CONSTRAINT `DataPlatformInvoiceDocumentItemDataDeliveryDocument_fk` FOREIGN KEY (`DeliveryDocument`, `DeliveryDocumentItem`) REFERENCES `data_platform_delivery_document_item_data` (`DeliveryDocument`, `DeliveryDocumentItem`)
+
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
