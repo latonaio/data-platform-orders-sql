@@ -11,13 +11,15 @@ https://api.XXXXXXXX.com/api/OP_API_XXXXXXX_XXX/overview
 data-platform-orders-sql には、sqlの設定ファイルとして、以下のファイルが含まれています。    
 
 * data-platform-orders-sql-header-data.sql（データ連携基盤 オーダー - ヘッダデータ）
+* data-platform-orders-sql-header-pdf-data.sql（データ連携基盤 オーダー - ヘッダPDFデータ）
 * data-platform-orders-sql-header-partner-data.sql（データ連携基盤 オーダー - ヘッダ取引先データ）
 * data-platform-orders-sql-header-partner-contact-data.sql（データ連携基盤 オーダー - ヘッダ取引先コンタクトデータ）
-* data-platform-orders-sql-header-pdf-data.sql（データ連携基盤 オーダー - ヘッダPDFデータ）
+* data-platform-orders-sql-header-partner-plant-data.sql（データ連携基盤 オーダー - ヘッダ取引先プラントデータ）
 * data-platform-orders-sql-item-data.sql（データ連携基盤 オーダー - 明細データ）  
 * data-platform-orders-sql-item-partner-data.sql（データ連携基盤 オーダー - 明細取引先データ）  
 * data-platform-orders-sql-item-pricing-element-data.sql（データ連携基盤 オーダー - 明細価格決定要素データ）  
 * data-platform-orders-sql-item-schedule-line-data.sql（データ連携基盤 オーダー - 明細納入日程行データ）
+* data-platform-orders-sql-address-data.sql（データ連携基盤 オーダー - 住所データ）
 
 
 ## MySQLのセットアップ / Kubernetesの設定 / SQLテーブルの作成方法

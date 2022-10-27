@@ -15,7 +15,7 @@ CREATE TABLE `data_platform_orders_header_partner_data`
     
     CONSTRAINT `DataPlatformOrdersHeaderPartnerData_fk` FOREIGN KEY (`OrderID`) REFERENCES `data_platform_orders_header_data` (`OrderID`),
     CONSTRAINT `DataPlatformOrdersHeaderPartnerDataPartnerFunction_fk` FOREIGN KEY (`PartnerFunction`) REFERENCES `data_platform_partner_function_partner_function_data` (`PartnerFunction`),
-    CONSTRAINT `DataPlatformOrdersHeaderPartnerDataBusinessPartner_fk` FOREIGN KEY (`BusinessPartner`, `BusinessPartnerFullName`, `BusinessPartnerName`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`, `BusinessPartnerFullName`, `BusinessPartnerName`),
+    CONSTRAINT `DataPlatformOrdersHeaderPartnerDataBusinessPartner_fk` FOREIGN KEY (`BusinessPartner`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
     CONSTRAINT `DataPlatformOrdersHeaderPartnerDataLanguage_fk` FOREIGN KEY (`Language`) REFERENCES `data_platform_language_language_data` (`Language`),
     CONSTRAINT `DataPlatformOrdersHeaderPartnerDataCurrency_fk` FOREIGN KEY (`Currency`) REFERENCES `data_platform_currency_currency_data` (`Currency`),
     CONSTRAINT `DataPlatformOrdersHeaderPartnerDataAddressID_fk` FOREIGN KEY (`AddressID`) REFERENCES `data_platform_address_address_data` (`AddressID`)

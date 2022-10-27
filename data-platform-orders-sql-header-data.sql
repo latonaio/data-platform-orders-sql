@@ -34,6 +34,7 @@ CREATE TABLE `data_platform_orders_header_data`
   `BPAccountAssignmentGroup`       varchar(2) NOT NULL,
   `AccountingExchangeRate`         float(8) DEFAULT NULL,
   `BillingDocumentDate`            date NOT NULL,
+  `IsExportImportDelivery`         tinyint(1) DEFAULT NULL,
   `HeaderText`                     varchar(200) DEFAULT NULL,
 
     PRIMARY KEY (`OrderID`),
@@ -43,7 +44,7 @@ CREATE TABLE `data_platform_orders_header_data`
     CONSTRAINT `DataPlatformOrdersHeaderTransactionCurrency_fk` FOREIGN KEY (`TransactionCurrency`) REFERENCES `data_platform_currency_currency_data` (`Currency`),
     CONSTRAINT `DataPlatformOrdersHeaderIncoterms_fk` FOREIGN KEY (`Incoterms`) REFERENCES `data_platform_incoterms_incoterms_data` (`Incoterms`),
     CONSTRAINT `DataPlatformOrdersHeaderPaymentTerms_fk` FOREIGN KEY (`PaymentTerms`) REFERENCES `data_platform_payment_terms_payment_terms_data` (`PaymentTerms`),
-    CONSTRAINT `DataPlatformOrdersHeaderPaymentMethod_fk` FOREIGN KEY (`PaymentMethod`) REFERENCES `data_platform_payment_method_payment_method_data` (`PaymentMethod`),
+    CONSTRAINT `DataPlatformOrdersHeaderPaymentMethod_fk` FOREIGN KEY (`PaymentMethod`) REFERENCES `data_platform_payment_method_payment_method_data` (`PaymentMethod`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

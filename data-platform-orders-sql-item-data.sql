@@ -68,25 +68,11 @@ CREATE TABLE `data_platform_orders_item_data`
     `TaxRate`                                varchar(6) DEFAULT NULL,
     `CountryOfOrigin`                        varchar(3) DEFAULT NULL,
 
-    PRIMARY KEY (`OrderID`, `OrderItem`),
+    PRIMARY KEY (`OrderID`, `OrderItem`, `Product`),
     
-    CONSTRAINT `DataPlatformInvoiceDocumentItemData_fk` FOREIGN KEY (`InvoiceDocument`) REFERENCES `data_platform_invoice_document_header_data` (`InvoiceDocument`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataDeliverToParty_fk` FOREIGN KEY (`DeliverToParty`, `DeliverFromParty`) REFERENCES `data_platform_delivery_document_header_data` (`DeliverToParty`, `DeliverFromParty`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataProduct_fk` FOREIGN KEY (`Product`) REFERENCES `data_platform_product_master_general_data` (`Product`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataProductGroup_fk` FOREIGN KEY (`ProductGroup`) REFERENCES `data_platform_product_group_product_group_data` (`ProductGroup`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataIssuingPlantBusinessPartner_fk` FOREIGN KEY (`IssuingPlantBusinessPartner`, `IssuingPlant`) REFERENCES `data_platform_delivery_document_header_data` (`IssuingPlantBusinessPartner`, `IssuingPlant`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataReceivingPlantBusinessPartner_fk` FOREIGN KEY (`ReceivingPlantBusinessPartner`, `ReceivingPlant`) REFERENCES `data_platform_delivery_document_header_data` (`ReceivingPlantBusinessPartner`, `ReceivingPlant`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataActualGoodsIssueDate_fk` FOREIGN KEY (`ActualGoodsIssueDate`, `ActualGoodsIssueTime`) REFERENCES `data_platform_delivery_document_item_data` (`ActualGoodsIssueDate`, `ActualGoodsIssueTime`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataActualGoodsReceiptDate_fk` FOREIGN KEY (`ActualGoodsReceiptDate`, `ActualGoodsReceiptTime`) REFERENCES `data_platform_delivery_document_item_data` (`ActualGoodsReceiptDate`, `ActualGoodsReceiptTime`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataNetAmount_fk` FOREIGN KEY (`NetAmount`) REFERENCES `data_platform_orders_item_data` (`NetAmount`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataGoodsIssueOrReceiptSlipNumber_fk` FOREIGN KEY (`GoodsIssueOrReceiptSlipNumber`) REFERENCES `data_platform_delivery_document_header_data` (`GoodsIssueOrReceiptSlipNumber`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataTransactionCurrency_fk` FOREIGN KEY (`TransactionCurrency`, `BusinessPartnerCurrency`) REFERENCES `data_platform_orders_item_data` (`TransactionCurrency`, `BusinessPartnerCurrency`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataPricingDate_fk` FOREIGN KEY (`PricingDate`) REFERENCES `data_platform_orders_item_data` (`PricingDate`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataProductTaxClassification_fk` FOREIGN KEY (`ProductTaxClassification`) REFERENCES `data_platform_orders_item_data` (`ProductTaxClassification`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataContractType_fk` FOREIGN KEY (`ContractType`) REFERENCES `data_platform_orders_header_data` (`ContractType`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataOrderVaridityStartDate_fk` FOREIGN KEY (`OrderVaridityStartDate`, `OrderValidityEndDate`) REFERENCES `data_platform_orders_header_data` (`ValidityStartDate`, `ValidityEndDate`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataInvoiceScheduleStartDate_fk` FOREIGN KEY (`InvoiceScheduleStartDate`, `InvoiceScheduleEndDate`) REFERENCES `data_platform_orders_header_data` (`InvoiceScheduleStartDate`, `InvoiceScheduleEndDate`),
-    CONSTRAINT `DataPlatformInvoiceDocumentItemDataDeliveryDocument_fk` FOREIGN KEY (`DeliveryDocument`, `DeliveryDocumentItem`) REFERENCES `data_platform_delivery_document_item_data` (`DeliveryDocument`, `DeliveryDocumentItem`)
+    CONSTRAINT `DataPlatformOrdersItemData_fk` FOREIGN KEY (`OrderID`) REFERENCES `data_platform_orders_header_data` (`OrderID`),
+    CONSTRAINT `DataPlatformOrdersItemDataProduct_fk` FOREIGN KEY (`Product`) REFERENCES `data_platform_product_master_general_data` (`Product`),
+    CONSTRAINT `DataPlatformOrdersItemDataProductGroup_fk` FOREIGN KEY (`ProductGroup`) REFERENCES `data_platform_product_group_product_group_data` (`ProductGroup`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
