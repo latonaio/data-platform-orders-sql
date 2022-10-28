@@ -17,7 +17,7 @@ CREATE TABLE `data_platform_orders_item_schedule_line_data`
   
   PRIMARY KEY (`OrderID`, `OrderItem`, `ScheduleLine`),
     
-  CONSTRAINT `DataPlatformOrdersItemScheduleLineData_fk` FOREIGN KEY (`OrderID`, `OrderItem`, `Product`) REFERENCES `data_platform_orders_item_data` (`OrderID`, `OrderItem`, `Product`)
+  CONSTRAINT `DataPlatformOrdersItemScheduleLineData_fk` FOREIGN KEY (`OrderID`, `OrderItem`) REFERENCES `data_platform_orders_item_data` (`OrderID`, `OrderItem`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
