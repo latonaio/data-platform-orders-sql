@@ -12,6 +12,9 @@ CREATE TABLE `data_platform_orders_item_schedule_line_data`
   `ConfdOrderQtyByPDTAvailCheck`    float(15) DEFAULT NULL,
   `DeliveredQtyInOrderQtyUnit`      float(15) DEFAULT NULL,
   `OpenConfdDelivQtyInOrdQtyUnit`   float(15) DEFAULT NULL,
+  `Batch`                           varchar(10) DEFAULT NULL,
+  `BatchValidityStartDate`          date(10) DEFAULT NULL,
+  `BatchValidityEndDate`            date(10) DEFAULT NULL,  
   `DelivBlockReasonForSchedLine`    tinyint(1) DEFAULT NULL,
   `PlusMinusFlag`                   varchar(1) NOT NULL,
   
