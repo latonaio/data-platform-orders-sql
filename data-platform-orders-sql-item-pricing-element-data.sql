@@ -2,7 +2,6 @@ CREATE TABLE `data_platform_orders_item_pricing_element_data`
 (
   `OrderID`                     int(16) NOT NULL,
   `OrderItem`                   int(6) NOT NULL,
-  `PricingProcedureStep`        int(3) NOT NULL,
   `PricingProcedureCounter`     int(3) NOT NULL,
   `ConditionType`               varchar(4) DEFAULT NULL,
   `PricingDate`                 date DEFAULT NULL,
@@ -17,7 +16,7 @@ CREATE TABLE `data_platform_orders_item_pricing_element_data`
   `TransactionCurrency`         varchar(5) DEFAULT NULL,
   `ConditionIsManuallyChanged`  tinyint(1) DEFAULT NULL,
   
-  PRIMARY KEY (`OrderID`, `OrderItem`, `PricingProcedureStep`, `PricingProcedureCounter`),
+  PRIMARY KEY (`OrderID`, `OrderItem`, `PricingProcedureCounter`),
     
   CONSTRAINT `DataPlatformOrdersItemPricingElementData_fk` FOREIGN KEY (`OrderID`, `OrderItem`) REFERENCES `data_platform_orders_item_data` (`OrderID`, `OrderItem`)
 

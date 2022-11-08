@@ -29,7 +29,7 @@ CREATE TABLE `data_platform_orders_header_data`
   `Incoterms`                        varchar(4) DEFAULT NULL,
   `PaymentTerms`                     varchar(4) NOT NULL,
   `PaymentMethod`                    varchar(1) NOT NULL,
-  `ReferenceDocument`                int(12) DEFAULT NULL,
+  `ReferenceDocument`                int(16) DEFAULT NULL,
   `ReferenceDocumentItem`            int(6) DEFAULT NULL,
   `BPAccountAssignmentGroup`         varchar(2) NOT NULL,
   `AccountingExchangeRate`           float(8) DEFAULT NULL,
