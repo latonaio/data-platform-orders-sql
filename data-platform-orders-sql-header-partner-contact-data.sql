@@ -14,7 +14,7 @@ CREATE TABLE `data_platform_orders_header_partner_contact_data`
   `ContactTag3`                       varchar(40) DEFAULT NULL,
   `ContactTag4`                       varchar(40) DEFAULT NULL, 
   
-  PRIMARY KEY (`OrderID`, `PartnerFunction`, `BusinessPartner`, `ContactID`) ,
+  PRIMARY KEY (`OrderID`, `PartnerFunction`, `BusinessPartner`, `ContactID`),
   
   CONSTRAINT `DataPlatformOrdersHeaderPartnerContactData_fk` FOREIGN KEY (`OrderID`, `PartnerFunction`, `BusinessPartner`) REFERENCES `data_platform_orders_header_partner_data` (`OrderID`, `PartnerFunction`, `BusinessPartner`)
 

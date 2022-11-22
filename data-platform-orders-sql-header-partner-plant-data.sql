@@ -7,8 +7,8 @@ CREATE TABLE `data_platform_orders_header_partner_plant_data`
 
     PRIMARY KEY (`OrderID`, `PartnerFunction`, `BusinessPartner`, `Plant`),
     
-    CONSTRAINT `DataPlatformOrdersHeaderPartnerData_fk` FOREIGN KEY (`OrderID`, `PartnerFunction`, `BusinessPartner`) REFERENCES `data_platform_orders_header_partner_data` (`OrderID`, `PartnerFunction`, `BusinessPartner`),
-    CONSTRAINT `DataPlatformOrdersHeaderPartnerDataPlant_fk` FOREIGN KEY (`BusinessPartner`, `Plant`) REFERENCES `data_platform_plant_general_data` (`BusinessPartner`, `Plant`)
+    CONSTRAINT `DataPlatformOrdersHeaderPartnerPlantData_fk` FOREIGN KEY (`OrderID`, `PartnerFunction`, `BusinessPartner`) REFERENCES `data_platform_orders_header_partner_data` (`OrderID`, `PartnerFunction`, `BusinessPartner`),
+    CONSTRAINT `DataPlatformOrdersHeaderPartnerPlantDataPlant_fk` FOREIGN KEY (`BusinessPartner`, `Plant`) REFERENCES `data_platform_plant_general_data` (`BusinessPartner`, `Plant`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

@@ -27,6 +27,8 @@ CREATE TABLE `data_platform_orders_header_data`
   `HeaderBillingBlockReason`         tinyint(1) DEFAULT NULL,
   `DeliveryBlockReason`              tinyint(1) DEFAULT NULL,
   `Incoterms`                        varchar(4) DEFAULT NULL,
+  `BillToCountry`                    varchar(3) DEFAULT NULL,
+  `BillFromCountry`                  varchar(3) DEFAULT NULL,
   `PaymentTerms`                     varchar(4) NOT NULL,
   `PaymentMethod`                    varchar(1) NOT NULL,
   `ReferenceDocument`                int(16) DEFAULT NULL,
