@@ -17,7 +17,7 @@ CREATE TABLE `data_platform_orders_item_schedule_line_data`
   `DeliveredQtyInOrderQtyUnit`                    float(15) DEFAULT NULL,
   `OpenConfdDelivQtyInOrdQtyUnit`                 float(15) DEFAULT NULL,
   `StockIsFullyConfirmed`                         tinyint(1) DEFAULT NULL,
-  `DelivBlockReasonForSchedLine`                  tinyint(1) DEFAULT NULL,
+  `DelivBlockStatusForSchedLine`                  tinyint(1) DEFAULT NULL,
   `PlusMinusFlag`                                 varchar(1) NOT NULL,
 
   PRIMARY KEY (`OrderID`, `OrderItem`, `ScheduleLine`),
