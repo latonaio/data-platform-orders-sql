@@ -29,7 +29,7 @@ CREATE TABLE `data_platform_orders_item_data`
     `OrderReceivingUnit`                            varchar(3) NOT NULL,
     `StockConfirmationPolicy`                       varchar(4) DEFAULT NULL,
     `StockConfirmationStatus`                       varchar(2) DEFAULT NULL,
-    `ConfdDelivQtyInOrderQtyUnit`                   float(15) DEFAULT NULL,
+    `ConfirmedOrderQuantityInBaseUnit`              float(15) DEFAULT NULL,
     `ItemWeightUnit`                                varchar(3) DEFAULT NULL,
     `ProductGrossWeight`                            float(15) DEFAULT NULL,
     `ItemGrossWeight`                               float(15) DEFAULT NULL,
