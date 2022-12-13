@@ -39,7 +39,7 @@ CREATE TABLE `data_platform_orders_header_data`
   `ReferenceDocumentItem`            int(6) DEFAULT NULL,
   `BPAccountAssignmentGroup`         varchar(2) NOT NULL,
   `AccountingExchangeRate`           float(8) DEFAULT NULL,
-  `BillingDocumentDate`              date NOT NULL,
+  `InvoiceDocumentDate`              date NOT NULL,
   `IsExportImportDelivery`           tinyint(1) DEFAULT NULL,
   `HeaderText`                       varchar(200) DEFAULT NULL,
 
