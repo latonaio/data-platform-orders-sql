@@ -25,7 +25,7 @@ CREATE TABLE `data_platform_orders_item_data`
     `ServicesRenderingDate`                         date DEFAULT NULL,
     `OrderQuantityInBaseUnit`                       float(15) NOT NULL,
     `OrderQuantityInIssuingUnit`                    float(15) NOT NULL,
-    `OrderQuantityInReceivingUnit                   float(15) NOT NULL,
+    `OrderQuantityInReceivingUnit`                  float(15) NOT NULL,
     `OrderIssuingUnit`                              varchar(3) NOT NULL,
     `OrderReceivingUnit`                            varchar(3) NOT NULL,
     `StockConfirmationPolicy`                       varchar(4) DEFAULT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE `data_platform_orders_item_data`
     `NetAmount`                                     float(13) DEFAULT NULL,
     `TaxAmount`                                     float(13) DEFAULT NULL,
     `GrossAmount`                                   float(13) DEFAULT NULL,
-    `BillingDocumentDate`                           date DEFAULT NULL,
+    `InvoiceDocumentDate`                           date DEFAULT NULL,
     `ProductionPlantPartnerFunction`                varchar(40) DEFAULT NULL,
     `ProductionPlantBusinessPartner`                int(12) DEFAULT NULL,
     `ProductionPlant`                               varchar(4) DEFAULT NULL,
@@ -105,6 +105,7 @@ CREATE TABLE `data_platform_orders_item_data`
     CONSTRAINT `DataPlatformOrdersItemDataDeliverFromParty_fk` FOREIGN KEY (`DeliverFromParty`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
     CONSTRAINT `DataPlatformOrdersItemDataDeliverToParty_fk` FOREIGN KEY (`DeliverToParty`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
     CONSTRAINT `DataPlatformOrdersItemDataStockConfirmationPlant_fk` FOREIGN KEY (`OrderID`, `OrderItem`, `StockConfirmationPartnerFunction`, `StockConfirmationBusinessPartner`, `StockConfirmationPlant`) REFERENCES `data_platform_orders_item_partner_plant_data` (`OrderID`, `OrderItem`, `PartnerFunction`, `BusinessPartner`, `Plant`),
+    CONSTRAINT `DataPlatformOrdersItemDataStockConfirmationPlantBatch_fk` FOREIGN KEY (`Product`, `StockConfirmationBusinessPartner`, `StockConfirmationPlant`, `StockConfirmationPlantBatch`) REFERENCES `data_platform_batch_master_record_data` (`Product`, `BusinessPartner`, `Plant`, `Batch`),
     CONSTRAINT `DataPlatformOrdersItemDataOrderIssuingQuantityUnit_fk` FOREIGN KEY (`OrderIssuingQuantityUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`),
     CONSTRAINT `DataPlatformOrdersItemDataOrderReceivingQuantityUnit_fk` FOREIGN KEY (`OrderReceivingQuantityUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`),
     CONSTRAINT `DataPlatformOrdersItemDataItemWeightUnit_fk` FOREIGN KEY (`ItemWeightUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`),
@@ -119,6 +120,8 @@ CREATE TABLE `data_platform_orders_item_data`
     CONSTRAINT `DataPlatformOrdersItemDataReceivingPlantBatch_fk` FOREIGN KEY (`ReceivingPlantBusinessPartner`, `ReceivingPlant`, `ReceivingPlantBatch`) REFERENCES `data_platform_batch_master_record_batch_data` (`BusinessPartner`, `Plant`, `Batch`),
     CONSTRAINT `DataPlatformOrdersItemDataIncoterms_fk` FOREIGN KEY (`Incoterms`) REFERENCES `data_platform_incoterms_incoterms_data` (`Incoterms`),
     CONSTRAINT `DataPlatformOrdersItemDataPaymentMethod_fk` FOREIGN KEY (`PaymentMethod`) REFERENCES `data_platform_payment_method_payment_method_data` (`PaymentMethod`),
+    CONSTRAINT `DataPlatformOrdersItemDataProject_fk` FOREIGN KEY (`Project`) REFERENCES `data_platform_project_project_data` (`Project`),
+    CONSTRAINT `DataPlatformOrdersItemDataTaxCode_fk` FOREIGN KEY (`TaxCode`) REFERENCES `data_platform_tax_code_tax_code_data` (`TaxCode`),
     CONSTRAINT `DataPlatformOrdersItemDataCountryOfOrigin_fk` FOREIGN KEY (`CountryOfOrigin`) REFERENCES `data_platform_country_country_data` (`Country`)
 
 ) ENGINE = InnoDB
