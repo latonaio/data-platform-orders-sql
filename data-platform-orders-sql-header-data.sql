@@ -8,8 +8,8 @@ CREATE TABLE `data_platform_orders_header_data`
   `CreationDate`                     date NOT NULL,
   `LastChangeDate`                   date NOT NULL,
   `ContractType`                     varchar(4) DEFAULT NULL,
-  `VaridityStartDate`                date DEFAULT NULL,
-  `VaridityEndDate`                  date DEFAULT NULL,
+  `ValidityStartDate`                date DEFAULT NULL,
+  `ValidityEndDate`                  date DEFAULT NULL,
   `InvoicePeriodStartDate`           date DEFAULT NULL,
   `InvoicePeriodEndDate`             date DEFAULT NULL,
   `TotalNetAmount`                   float(13) NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `data_platform_orders_header_data`
   `HeaderText`                       varchar(200) DEFAULT NULL,
 
     PRIMARY KEY (`OrderID`),
-    
+
     CONSTRAINT `DataPlatformOrdersHeaderBuyer_fk` FOREIGN KEY (`Buyer`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
     CONSTRAINT `DataPlatformOrdersHeaderSeller_fk` FOREIGN KEY (`Seller`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
     CONSTRAINT `DataPlatformOrdersHeaderTransactionCurrency_fk` FOREIGN KEY (`TransactionCurrency`) REFERENCES `data_platform_currency_currency_data` (`Currency`),
