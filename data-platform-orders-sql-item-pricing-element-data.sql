@@ -18,7 +18,8 @@ CREATE TABLE `data_platform_orders_item_pricing_element_data`
   
   PRIMARY KEY (`OrderID`, `OrderItem`, `PricingProcedureCounter`),
     
-  CONSTRAINT `DataPlatformOrdersItemPricingElementData_fk` FOREIGN KEY (`OrderID`, `OrderItem`) REFERENCES `data_platform_orders_item_data` (`OrderID`, `OrderItem`)
+  CONSTRAINT `DataPlatformOrdersItemPricingElementData_fk` FOREIGN KEY (`OrderID`, `OrderItem`) REFERENCES `data_platform_orders_item_data` (`OrderID`, `OrderItem`),
+  CONSTRAINT `DataPlatformOrdersItemPricingElementDataTransactionCurrency_fk` FOREIGN KEY (`TransactionCurrency`) REFERENCES `data_platform_currency_currency_data` (`Currency`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

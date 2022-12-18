@@ -1,10 +1,12 @@
-CREATE TABLE `data_platform_orders_header_pdf_data`
+CREATE TABLE `data_platform_orders_header_doc_data`
 (
   `OrderID`                        int(16) NOT NULL,
   `DocType`                        varchar(40) NOT NULL,
+  `FileExtension`                  varchar(3) DEFAULT NULL,
   `DocVersionID`                   int(4) NOT NULL,
   `DocID`                          varchar(100) NOT NULL,
   `DocIssuerBusinessPartner`       int(12) DEFAULT NULL,
+  `FilePath`                       varchar(1000) DEFAULT NULL,
   `FileName`                       varchar(200) DEFAULT NULL,
   
     PRIMARY KEY (`OrderID`, `DocType`, `DocVersionID`, `DocID`),

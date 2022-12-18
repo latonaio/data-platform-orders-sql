@@ -5,9 +5,9 @@ CREATE TABLE `data_platform_orders_item_schedule_line_data`
   `ScheduleLine`                                  int(3) NOT NULL,
   `Product`                                       varchar(40) NOT NULL,
   `StockConfirmationPartnerFunction`              varchar(40) NOT NULL,
-  `StockConfirmationBussinessPartner`             int(12) NOT NULL,
+  `StockConfirmationBusinessPartner`              int(12) NOT NULL,
   `StockConfirmationPlant`                        varchar(4) NOT NULL,
-  `StockConfirmationPlantBatch`                   varchar(10) DEFAULT NULL,
+  `StockConfirmationPlantBatch`                   varchar(10) NOT NULL,
   `StockConfirmationPlantBatchValidityStartDate`  date DEFAULT NULL,
   `StockConfirmationPlantBatchValidityEndDate`    date DEFAULT NULL,
   `RequestedDeliveryDate`                         date NOT NULL,
@@ -24,8 +24,8 @@ CREATE TABLE `data_platform_orders_item_schedule_line_data`
     
   CONSTRAINT `DataPlatformOrdersItemScheduleLineData_fk` FOREIGN KEY (`OrderID`, `OrderItem`) REFERENCES `data_platform_orders_item_data` (`OrderID`, `OrderItem`),
   CONSTRAINT `DataPlatformOrdersItemScheduleLineDataProduct_fk` FOREIGN KEY (`Product`) REFERENCES `data_platform_product_master_general_data` (`Product`),
-  CONSTRAINT `DataPlatformOrdersItemScheduleLineDataStockConfirmationPlant_fk` FOREIGN KEY (`OrderID`, `OrderItem`, `StockConfirmationPartnerFunction`, `StockConfirmationBusinessPartner`, `StockConfirmationPlant`) REFERENCES `data_platform_orders_item_partner_plant_data` (`OrderID`, `OrderItem`, `PartnerFunction`, `BusinessPartner`, `Plant`),
-  CONSTRAINT `DataPlatformOrdersItemScheduleLineDataStockConfirmationPlantBatch_fk` FOREIGN KEY (`Product`, `StockConfirmationBussinessPartner`, `StockConfirmationPlant`, `StockConfirmationPlantBatch`) REFERENCES `data_platform_batch_master_record_batch_data` (`Product`, `BusinessPartner`, `Plant`, `Batch`)
+  CONSTRAINT `DataPlatformOrdersItemScheduleLineDataStockConfPlant_fk` FOREIGN KEY (`OrderID`, `OrderItem`, `StockConfirmationPartnerFunction`, `StockConfirmationBusinessPartner`, `StockConfirmationPlant`) REFERENCES `data_platform_orders_item_partner_plant_data` (`OrderID`, `OrderItem`, `PartnerFunction`, `BusinessPartner`, `Plant`),
+  CONSTRAINT `DataPlatformOrdersItemScheduleLineDataStockConfPlantBatch_fk` FOREIGN KEY (`Product`, `StockConfirmationBusinessPartner`, `StockConfirmationPlant`, `StockConfirmationPlantBatch`) REFERENCES `data_platform_batch_master_record_batch_data` (`Product`, `BusinessPartner`, `Plant`, `Batch`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
